@@ -28,7 +28,7 @@ export default function App() {
     const rect = containerRef.current.getBoundingClientRect();
     setMousePosition({
       x: e.clientX - rect.left,
-      y: e.clientY - top,
+      y: e.clientY - rect.top,
     });
   };
 
@@ -198,12 +198,17 @@ export default function App() {
             {/* Canvas Area */}
             <div className="pt-6 space-y-4">
               
-              {/* Bild wird direkt aus dem GitHub-Hauptverzeichnis gezogen */}
+              {/* Dynamischer, universeller Import für das Bild aus dem Main-Ordner */}
               <div className="relative h-48 rounded-xl border border-neutral-800 overflow-hidden bg-neutral-900">
                 <img 
-                  src="https://raw.githubusercontent.com/DEIN_GITHUB_NAME/DEIN_REPO_NAME/main/Bild.jpg" 
+                  src="./Bild.jpg" 
                   alt="Rümpelgrün Projekt" 
                   className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300"
+                  onError={(e) => {
+                    // Fallback-Versuch ohne Punkt, falls Vite die Pfade umschreibt
+                    e.currentTarget.onerror = null;
+                    e.currentTarget.src = "Bild.jpg";
+                  }}
                 />
                 <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3 pt-8">
                   <span className="text-[10px] font-mono text-[#A3B899] tracking-wider uppercase">Aktuelles Projekt</span>
