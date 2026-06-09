@@ -1,0 +1,6 @@
+{
+  "name": "High-End Hero Section",
+  "description": "Ein moderner, sauberer und visuell beeindruckender Startbereich im 'Quiet Luxury' Design für universelle Webauftritte.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
