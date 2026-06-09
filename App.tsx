@@ -18,7 +18,6 @@ import {
 
 export default function App() {
   const [demoActive, setDemoActive] = useState<boolean>(false);
-  const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
   
   // Mouse tracking für den edlen Licht-Effekt im Hintergrund
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -29,7 +28,7 @@ export default function App() {
     const rect = containerRef.current.getBoundingClientRect();
     setMousePosition({
       x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
+      y: e.clientY - top,
     });
   };
 
@@ -174,7 +173,7 @@ export default function App() {
 
         </div>
 
-        {/* Rechts: Live-Vorschau des Dashboards mit hochgeladenem Bild */}
+        {/* Rechts: Live-Vorschau des Dashboards */}
         <div className="lg:col-span-5 relative w-full h-full min-h-[440px] flex items-center justify-center">
           
           <div className="absolute w-[120%] h-[120%] bg-gradient-to-br from-[#121813]/20 via-[#070907] to-transparent pointer-events-none rounded-full blur-3xl -z-10" />
@@ -199,16 +198,12 @@ export default function App() {
             {/* Canvas Area */}
             <div className="pt-6 space-y-4">
               
-              {/* Dein hochgeladenes Bild als Hauptelement des Mockups */}
+              {/* Bild wird direkt aus dem GitHub-Hauptverzeichnis gezogen */}
               <div className="relative h-48 rounded-xl border border-neutral-800 overflow-hidden bg-neutral-900">
                 <img 
-                  src="Bild.jpg" 
+                  src="https://raw.githubusercontent.com/DEIN_GITHUB_NAME/DEIN_REPO_NAME/main/Bild.jpg" 
                   alt="Rümpelgrün Projekt" 
                   className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300"
-                  onError={(e) => {
-                    // Fallback falls der Pfad lokal im Editor abweicht
-                    e.currentTarget.src = "./Bild.jpg";
-                  }}
                 />
                 <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3 pt-8">
                   <span className="text-[10px] font-mono text-[#A3B899] tracking-wider uppercase">Aktuelles Projekt</span>
