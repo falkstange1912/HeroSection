@@ -198,12 +198,12 @@ export default function App() {
             {/* Canvas Area */}
             <div className="pt-6 space-y-4">
               
-              {/* Absolut sicheres Bild über Web-URL */}
+              {/* Professionelles, thematisch passendes Galabau-Bild von Unsplash */}
               <div className="relative h-48 rounded-xl border border-neutral-800 overflow-hidden bg-neutral-900">
                 <img 
-                  src="https://picsum.photos/id/16/600/400" 
+                  src="https://images.unsplash.com/photo-1558905617-15456d526607?auto=format&fit=crop&w=600&q=80" 
                   alt="Rümpelgrün Projekt" 
-                  className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300"
+                  className="w-full h-full object-cover opacity-85 hover:opacity-100 transition-opacity duration-300"
                 />
                 <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3 pt-8">
                   <span className="text-[10px] font-mono text-[#A3B899] tracking-wider uppercase">Aktuelles Projekt</span>
