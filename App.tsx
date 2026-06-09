@@ -166,17 +166,12 @@ export default function App() {
                   {tool.icon}
                   {tool.title}
                 </div>
-                <div className="text-xs text-neutral-500 mt-2 leading-relaxed">{tool.desc}</div>
-              </div>
-            ))}
-          </div>
+                <img 
+  src="https://picsum.photos/id/16/600/400" 
+  alt="Rümpelgrün Projekt" 
+  className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300"
+/>
 
-        </div>
-
-        {/* Rechts: Live-Vorschau des Dashboards */}
-        <div className="lg:col-span-5 relative w-full h-full min-h-[440px] flex items-center justify-center">
-          
-          <div className="absolute w-[120%] h-[120%] bg-gradient-to-br from-[#121813]/20 via-[#070907] to-transparent pointer-events-none rounded-full blur-3xl -z-10" />
           
           {/* Mockup Container */}
           <div className="w-full max-w-md rounded-2xl bg-[#0C100D] border border-neutral-800 shadow-2xl p-6 overflow-hidden relative backdrop-blur-md">
