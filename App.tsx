@@ -5,14 +5,9 @@ import {
 } from "motion/react";
 import { 
   ArrowRight, 
-  Sparkles, 
-  Layers, 
-  Cpu, 
-  Play, 
-  CheckCircle2, 
+  Compass, 
   ChevronRight,
   Globe,
-  Compass,
   Activity,
   Trees,
   UserPlus,
@@ -23,7 +18,6 @@ import {
 
 export default function App() {
   const [demoActive, setDemoActive] = useState<boolean>(false);
-  const [copiedCode, setCopiedCode] = useState<boolean>(false);
   const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
   
   // Mouse tracking für den edlen Licht-Effekt im Hintergrund
@@ -72,7 +66,7 @@ export default function App() {
           <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#1B2A1C] to-[#070907] border border-[#344E37]/40 flex items-center justify-center">
             <Trees className="w-4 h-4 text-[#A3B899]" />
           </div>
-          <span className="font-sans text-sm font-bold tracking-[0.25em] text-[#F4F4F5]">RUMPELGRÜN</span>
+          <span className="font-sans text-sm font-bold tracking-[0.25em] text-[#F4F4F5]">RÜMPELGRÜN</span>
         </div>
 
         <div className="hidden md:flex items-center gap-6 text-xs font-mono text-neutral-400">
@@ -131,7 +125,7 @@ export default function App() {
             </h1>
             
             <p className="text-neutral-400 text-base sm:text-lg max-w-xl leading-relaxed font-light">
-              Ein maßgeschneidertes, digitales System für Rumpelgrün. Entwickelt, um erstklassiges Handwerk online sichtbar zu machen, Fachkräfte anzuziehen und lästigen Papierkram im Büro komplett zu automatisieren.
+              Ein maßgeschneidertes, digitales System für Rümpelgrün. Entwickelt, um erstklassiges Handwerk online sichtbar zu machen, Fachkräfte anzuziehen und lästigen Papierkram im Büro komplett zu automatisieren.
             </p>
           </div>
 
@@ -180,7 +174,7 @@ export default function App() {
 
         </div>
 
-        {/* Rechts: Live-Vorschau des Dashboards / Tools */}
+        {/* Rechts: Live-Vorschau des Dashboards mit hochgeladenem Bild */}
         <div className="lg:col-span-5 relative w-full h-full min-h-[440px] flex items-center justify-center">
           
           <div className="absolute w-[120%] h-[120%] bg-gradient-to-br from-[#121813]/20 via-[#070907] to-transparent pointer-events-none rounded-full blur-3xl -z-10" />
@@ -197,60 +191,55 @@ export default function App() {
               </div>
               <div className="flex items-center gap-1 text-[10px] font-mono text-neutral-500 bg-black px-2 py-0.5 rounded border border-neutral-900">
                 <Globe className="w-3 h-3 text-neutral-600" />
-                <span>rumpelgruen-vorschau.de</span>
+                <span>ruempelgruen-vorschau.de</span>
               </div>
               <ChevronRight className="w-3 h-3 text-neutral-600" />
             </div>
 
             {/* Canvas Area */}
-            <div className="pt-6 space-y-6">
+            <div className="pt-6 space-y-4">
               
-              {/* Widget 1: Bewerber-Live-Anzeige */}
-              <div className="relative rounded-xl bg-gradient-to-b from-[#111612] to-[#070907] border border-[#344E37]/30 p-4 overflow-hidden flex flex-col justify-between">
+              {/* Dein hochgeladenes Bild als Hauptelement des Mockups */}
+              <div className="relative h-48 rounded-xl border border-neutral-800 overflow-hidden bg-neutral-900">
+                <img 
+                  src="Bild.jpg" 
+                  alt="Rümpelgrün Projekt" 
+                  className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300"
+                  onError={(e) => {
+                    // Fallback falls der Pfad lokal im Editor abweicht
+                    e.currentTarget.src = "./Bild.jpg";
+                  }}
+                />
+                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3 pt-8">
+                  <span className="text-[10px] font-mono text-[#A3B899] tracking-wider uppercase">Aktuelles Projekt</span>
+                  <p className="text-xs font-medium text-white">Präzisionsarbeit im Außenbereich</p>
+                </div>
+              </div>
+
+              {/* Widget: Bewerber-Live-Anzeige */}
+              <div className="relative rounded-xl bg-gradient-to-b from-[#111612] to-[#070907] border border-[#344E37]/30 p-4 flex flex-col justify-between">
                 <div className="flex items-center justify-between relative z-10">
                   <div className="space-y-0.5">
                     <span className="text-[10px] font-mono text-neutral-500 uppercase tracking-widest">Digitale Bewerbungseingänge</span>
-                    <h3 className="text-xl font-bold text-[#F4F4F5] flex items-baseline gap-1.5 mt-1">
+                    <h3 className="text-base font-bold text-[#F4F4F5] flex items-baseline gap-1.5 mt-1">
                       {applicantCount} Gesellen <span className="text-xs text-emerald-400 font-mono font-normal">▲ Aktiv</span>
                     </h3>
                   </div>
-                  <span className="w-8 h-8 rounded-full flex items-center justify-center bg-gradient-to-tr from-[#A3B899] to-[#4E6E52] p-1.5 text-neutral-950 shadow-lg">
-                    <UserPlus className="w-4 h-4 text-white" />
+                  <span className="w-7 h-7 rounded-full flex items-center justify-center bg-gradient-to-tr from-[#A3B899] to-[#4E6E52] p-1.5 text-neutral-950 shadow-lg">
+                    <UserPlus className="w-3.5 h-3.5 text-white" />
                   </span>
                 </div>
 
-                <div className="mt-4 space-y-2">
+                <div className="mt-3 space-y-1.5">
                   <div className="p-2 rounded bg-black/40 border border-neutral-900 flex items-center justify-between text-[11px]">
                     <span className="text-neutral-300 font-medium">Marco S. (Landschaftsgärtner)</span>
                     <span className="text-emerald-400 font-mono text-[10px] bg-emerald-500/10 px-1.5 py-0.5 rounded">Vor 12 Min</span>
                   </div>
-                  <div className="p-2 rounded bg-black/40 border border-neutral-900 flex items-center justify-between text-[11px] opacity-60">
-                    <span className="text-neutral-400">Christian B. (Vorarbeiter)</span>
-                    <span className="text-neutral-500 font-mono text-[10px]">Gestern</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Widget 2: Anfrageplaner / Filter */}
-              <div className="p-4 rounded-xl bg-[#111411]/60 border border-neutral-900 space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono text-neutral-500">PROJEKT-PRE-FILTERING</span>
-                  <CalendarRange className="w-3.5 h-3.5 text-[#A3B899]" />
-                </div>
-                
-                <div className="space-y-1.5">
-                  <div className="text-xs text-neutral-300 flex justify-between">
-                    <span>Automatisierte Vorqualifikation</span>
-                    <span className="text-[#A3B899] font-mono">100% aktiv</span>
-                  </div>
-                  <p className="text-[11px] text-neutral-500 leading-normal">
-                    Kunden müssen Fotos & Maße hochladen. Unpassende Anfragen werden aussortiert, bevor Sie Zeit für ein Angebot verschwenden.
-                  </p>
                 </div>
               </div>
 
               {/* Status footer */}
-              <div className="flex items-center justify-between text-[10px] text-neutral-500 pt-2 font-mono">
+              <div className="flex items-center justify-between text-[10px] text-neutral-500 pt-1 font-mono">
                 <span className="flex items-center gap-1">
                   <Activity className="w-3 h-3 text-neutral-600" />
                   Verbindung: Gesichert via Vercel
@@ -280,7 +269,7 @@ export default function App() {
                 </div>
                 <h3 className="text-xl font-bold font-sans">Hinweis zum Prototyp</h3>
                 <p className="text-neutral-400 text-xs sm:text-sm leading-relaxed">
-                  Dieses System befindet sich aktuell im **Demo-Modus** und dient als exklusives digitales Grundgerüst für Rumpelgrün. Die Schnittstellen für E-Mail-Anfragen und das Bewerber-System werden nach der finalen Freischaltung aktiv geschaltet.
+                  Dieses System befindet sich aktuell im **Demo-Modus** und dient als exklusives digitales Grundgerüst für Rümpelgrün. Die Schnittstellen für E-Mail-Anfragen und das Bewerber-System werden nach der finalen Freischaltung aktiv geschaltet.
                 </p>
                 
                 <div className="p-3 bg-black rounded-lg border border-neutral-900 text-left font-mono text-[11px] text-neutral-500 space-y-1">
