@@ -166,12 +166,17 @@ export default function App() {
                   {tool.icon}
                   {tool.title}
                 </div>
-                <img 
-  src="https://picsum.photos/id/16/600/400" 
-  alt="Rümpelgrün Projekt" 
-  className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300"
-/>
+                <div className="text-xs text-neutral-500 mt-2 leading-relaxed">{tool.desc}</div>
+              </div>
+            ))}
+          </div>
 
+        </div>
+
+        {/* Rechts: Live-Vorschau des Dashboards */}
+        <div className="lg:col-span-5 relative w-full h-full min-h-[440px] flex items-center justify-center">
+          
+          <div className="absolute w-[120%] h-[120%] bg-gradient-to-br from-[#121813]/20 via-[#070907] to-transparent pointer-events-none rounded-full blur-3xl -z-10" />
           
           {/* Mockup Container */}
           <div className="w-full max-w-md rounded-2xl bg-[#0C100D] border border-neutral-800 shadow-2xl p-6 overflow-hidden relative backdrop-blur-md">
@@ -193,17 +198,12 @@ export default function App() {
             {/* Canvas Area */}
             <div className="pt-6 space-y-4">
               
-              {/* Dynamischer, universeller Import für das Bild aus dem Main-Ordner */}
+              {/* Absolut sicheres Bild über Web-URL */}
               <div className="relative h-48 rounded-xl border border-neutral-800 overflow-hidden bg-neutral-900">
                 <img 
-                  src="./Bild.jpg" 
+                  src="https://picsum.photos/id/16/600/400" 
                   alt="Rümpelgrün Projekt" 
                   className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300"
-                  onError={(e) => {
-                    // Fallback-Versuch ohne Punkt, falls Vite die Pfade umschreibt
-                    e.currentTarget.onerror = null;
-                    e.currentTarget.src = "Bild.jpg";
-                  }}
                 />
                 <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3 pt-8">
                   <span className="text-[10px] font-mono text-[#A3B899] tracking-wider uppercase">Aktuelles Projekt</span>
