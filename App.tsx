@@ -198,13 +198,11 @@ export default function App() {
             {/* Canvas Area */}
             <div className="pt-6 space-y-4">
               
-              {/* Professionelles, thematisch passendes Galabau-Bild von Unsplash */}
-              <div className="relative h-48 rounded-xl border border-neutral-800 overflow-hidden bg-neutral-900">
-                <img 
-                  src="https://images.unsplash.com/photo-1558905617-15456d526607?auto=format&fit=crop&w=600&q=80" 
-                  alt="Rümpelgrün Projekt" 
-                  className="w-full h-full object-cover opacity-85 hover:opacity-100 transition-opacity duration-300"
-                />
+              {/* Unblockbarer, nativer SVG-Hintergrund für 100% verlässliche Anzeige */}
+              <div className="relative h-48 rounded-xl border border-neutral-800 overflow-hidden bg-gradient-to-br from-[#162217] to-[#0D130E] flex items-center justify-center">
+                <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#A3B899_1px,transparent_1px)] [background-size:16px_16px]" />
+                <Trees className="w-12 h-12 text-[#A3B899]/40 relative z-10" />
+                
                 <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3 pt-8">
                   <span className="text-[10px] font-mono text-[#A3B899] tracking-wider uppercase">Aktuelles Projekt</span>
                   <p className="text-xs font-medium text-white">Präzisionsarbeit im Außenbereich</p>
